@@ -14,12 +14,14 @@ public class Card : MonoBehaviour
     public int cost;
     public int damage;
     public Sprite sprite;
+    public Sprite suit;
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI descriptionText;
     public TextMeshProUGUI healthText;
     public TextMeshProUGUI costText;
     public TextMeshProUGUI damageText;
     public Image spriteImage;
+    public Image suitImage;
         
 
     // Start is called before the first frame update
@@ -37,6 +39,7 @@ public class Card : MonoBehaviour
         costText.text = cost.ToString();
         damageText.text = damage.ToString();
         spriteImage.sprite = sprite;
+        suitImage.sprite = suit;
 
     }
 
