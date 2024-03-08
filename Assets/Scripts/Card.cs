@@ -30,6 +30,7 @@ public class Card : MonoBehaviour
         health = data.health;
         damage = data.damage;
         sprite = data.sprite;
+        suit = data.suit;
         nameText.text = card_name;
         descriptionText.text = description;
         healthText.text = health.ToString();
