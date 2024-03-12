@@ -14,6 +14,9 @@ public class GameManager : MonoBehaviour
     public List<Card> discard_pile = new List<Card>();
     public List<Transform> card_positon = new List<Transform>();
 
+    public Transform _canvas;
+    
+    
     //public int d;
     public int decksize;
     
@@ -54,16 +57,25 @@ public class GameManager : MonoBehaviour
 
     void Deal()
     {
-    Shuffle();
-    
-    int randomDeckRange = Random.Range(0, decksize);
-    
-    player_hand.Add(deck[randomDeckRange]);
-    deck.Remove(deck[randomDeckRange]);
+        Shuffle();
 
-    //Card c1 = Instantiate(deck[0], card_positon[0]); 
-    //Use "Canvas" for parent
-    //card_positon[0]
+        for (int i = 0; i < decksize; i++)
+        {
+            int randomDeckCard = Random.Range(0, decksize);
+            deck[i] = player_hand[randomDeckCard];
+
+            player_hand.Add(deck[randomDeckCard]);
+            deck.RemoveAt(randomDeckCard);
+            //May need to be Remove or RemoveAt
+
+
+            Card c1 = Instantiate(player_hand[randomDeckCard], card_positon[0]);
+            c1.transform.SetParent(_canvas);
+            
+            
+            //Use "Canvas" for parent
+            //for card_position try an offset instead, so a list of positions isn't needed
+        }
     }
 
     void Shuffle()
