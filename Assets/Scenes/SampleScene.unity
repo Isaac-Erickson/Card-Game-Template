@@ -642,6 +642,27 @@ MonoBehaviour:
   - {fileID: 0}
   player_hand: []
   discard_pile: []
+  card_positon:
+  - {fileID: 3359977587205475775, guid: 8da6ea6dc80d14851a042f252b9b8bd9, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!4 &622756966
 Transform:
   m_ObjectHideFlags: 0

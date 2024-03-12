@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,9 +12,7 @@ public class GameManager : MonoBehaviour
     public List<Card> player_hand = new List<Card>();
     //public List<Card> ai_hand = new List<Card>();
     public List<Card> discard_pile = new List<Card>();
-
-    public Transform cardPos1;
-    public Transform cardPos2;
+    public List<Transform> card_positon = new List<Transform>();
     
     private void Awake()
     {
@@ -43,8 +42,9 @@ public class GameManager : MonoBehaviour
     {
     Shuffle();
 
-    Card c1 = Instantiate(deck[0], cardPos1);
-    Card c2 = Instantiate(deck[1], cardPos2);
+    //Card c1 = Instantiate(deck[0], card_positon[0]); 
+    //Use "Canvas" for parent
+    //card_positon[0]
     }
 
     void Shuffle()
