@@ -42,8 +42,9 @@ public class GameManager : MonoBehaviour
     {
     Shuffle();
 
-    Card c1 = Instantiate(deck[0], card_positon[0]); 
-    //Use "Canvas" for parent 
+    //Card c1 = Instantiate(deck[0], card_positon[0]); 
+    //Use "Canvas" for parent
+    //card_positon[0]
     }
 
     void Shuffle()
