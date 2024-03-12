@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
     //public List<Card> ai_hand = new List<Card>();
     public List<Card> discard_pile = new List<Card>();
     public List<Transform> card_positon = new List<Transform>();
+
+    //public int d;
+    public int decksize;
     
     private void Awake()
     {
@@ -29,6 +32,17 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        decksize = deck.Count;
+        
+        //Load Deck
+        /*for (int i = 0; i < 64; i++)
+        {
+            d = i;
+            deck[d] = CardDatabase.cardList[i];
+        }*/
+        
+        
+        
         Deal();
     }
 
@@ -41,6 +55,11 @@ public class GameManager : MonoBehaviour
     void Deal()
     {
     Shuffle();
+    
+    int randomDeckRange = Random.Range(0, decksize);
+    
+    player_hand.Add(deck[randomDeckRange]);
+    deck.Remove(deck[randomDeckRange]);
 
     //Card c1 = Instantiate(deck[0], card_positon[0]); 
     //Use "Canvas" for parent
@@ -50,6 +69,15 @@ public class GameManager : MonoBehaviour
     void Shuffle()
     {
         Debug.Log("121");
+        
+        /*for (int i=0; i<decksize; i++)
+        {
+            player_deck[0] = deck[i];
+            int rnd = Random.Range(i, decksize);
+            deck[i] = deck[rnd];
+            deck[rnd] = player_deck[0];
+
+        }*/
     }
 
     void AI_Turn()
