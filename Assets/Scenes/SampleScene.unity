@@ -250,8 +250,13 @@ MonoBehaviour:
   - {fileID: 1126644538999475434, guid: 17e906621820045c3ab6aae59feeace5, type: 3}
   - {fileID: 1126644538999475434, guid: 17e906621820045c3ab6aae59feeace5, type: 3}
   - {fileID: 1126644538999475434, guid: 17e906621820045c3ab6aae59feeace5, type: 3}
-  player_deck: []
+  player_deck:
+  - {fileID: 4608709814338197990, guid: 99ef4bccd68e84d9ba6e7c8051daf70b, type: 3}
+  - {fileID: 4608709814338197990, guid: 99ef4bccd68e84d9ba6e7c8051daf70b, type: 3}
+  - {fileID: 4608709814338197990, guid: 99ef4bccd68e84d9ba6e7c8051daf70b, type: 3}
+  - {fileID: 4608709814338197990, guid: 99ef4bccd68e84d9ba6e7c8051daf70b, type: 3}
   player_hand: []
+  ai_hand: []
   discard_pile: []
   offset: 0
   _canvas: {fileID: 4002591297304670402}
