@@ -7,9 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager gm;
     public List<Card> deck = new List<Card>();
-
     public List<Card> player_deck = new List<Card>();
-
     //public List<Card> ai_deck = new List<Card>();
     public List<Card> player_hand = new List<Card>();
     public List<Card> ai_hand = new List<Card>();
@@ -17,10 +15,11 @@ public class GameManager : MonoBehaviour
     //public List<Transform> card_positon = new List<Transform>();
 
     public float offset;
+    public float cardPlayed;
 
     public Transform _canvas;
-
-
+    
+    
     private void Awake()
     {
         if (gm != null && gm != this)
@@ -33,19 +32,37 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(this.gameObject);
         }
     }
-
-    // Start is called before the first frame update
+    
     void Start()
     {
         DealOpponent();
         Deal();
 
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
+        
+        //for key x, play card x-1
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            cardPlayed = 1;
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            cardPlayed = 2;
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            cardPlayed = 3;
+        }
 
+        if (cardPlayed != 0)
+        {
+            PlayCard();
+        }
     }
 
     void Deal()
@@ -85,19 +102,27 @@ public class GameManager : MonoBehaviour
             deck.RemoveAt(randomCard);
         }
 
-
-        void Shuffle()
-        {
-
-        }
-
         void AI_Turn()
         {
-
+            //check if health = 0
+            //if health = 0, delete opponent
+            //if health != 0, deal damage
         }
-
-
-
-
     }
+
+   void PlayCard()
+   {
+
+       //int cardNumber = cardPlayed.ToString() - 1;
+       //int cardDamage = player_hand[cardNumber].GetComponent();
+        
+        //find out card damage, player_hand, use Get.Component
+        //deal card damage
+        //delete card
+        //shift cards in hand
+        
+        //At end set cardPlayed = 0;
+        cardPlayed = 0;
+    }
+    
 }
