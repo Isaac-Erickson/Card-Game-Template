@@ -15,7 +15,6 @@ public class GameManager : MonoBehaviour
     //public List<Transform> card_positon = new List<Transform>();
 
     public float offset;
-    public float cardPlayed;
 
     public Transform _canvas;
     
@@ -35,39 +34,50 @@ public class GameManager : MonoBehaviour
     
     void Start()
     {
+        offset = -300;
         DealOpponent();
         Deal();
 
     }
+
+   public int SlotNumber()
+    {
+        for (int i = 0; i <= 9; i++)
+        {
+            if (Input.GetKeyDown(i.ToString()))
+                return i;
+        }
+
+        return -1;
+    }
     
     void Update()
     {
-        
-        //for key x, play card x-1
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (SlotNumber() >= 0)
         {
-            cardPlayed = 1;
-        }
-        
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            cardPlayed = 2;
-        }
-        
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            cardPlayed = 3;
-        }
-
-        if (cardPlayed != 0)
-        {
+            Debug.Log("SlotNumber:" + SlotNumber());
             PlayCard();
         }
     }
-
+    
+    void PlayCard()
+    {
+        //int cardDamage = player_hand[SlotNumber()].GetComponent<damage>();
+        //find out card damage, player_hand, use Get.Component
+        //deal card damage
+       
+        
+        //delete card
+        
+        
+        //shift cards in hand
+        
+        //At end set SlotNumber() = -1;
+    }
+    
+    
     void Deal()
     {
-
         int dealSize = 4;
 
         for (int i = 0; i < dealSize; i++)
@@ -109,20 +119,4 @@ public class GameManager : MonoBehaviour
             //if health != 0, deal damage
         }
     }
-
-   void PlayCard()
-   {
-
-       //int cardNumber = cardPlayed.ToString() - 1;
-       //int cardDamage = player_hand[cardNumber].GetComponent();
-        
-        //find out card damage, player_hand, use Get.Component
-        //deal card damage
-        //delete card
-        //shift cards in hand
-        
-        //At end set cardPlayed = 0;
-        cardPlayed = 0;
-    }
-    
 }
