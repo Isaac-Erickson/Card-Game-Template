@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
@@ -18,6 +19,9 @@ public class GameManager : MonoBehaviour
 
     public Transform _canvas;
     
+    //don't use this int for actual aihealth
+    public float aiHealth;
+        
     
     private void Awake()
     {
@@ -65,14 +69,20 @@ public class GameManager : MonoBehaviour
         //int cardDamage = player_hand[SlotNumber()].GetComponent<damage>();
         //find out card damage, player_hand, use Get.Component
         //deal card damage
-       
+        aiHealth -= 1;
+        Debug.Log("Health" + aiHealth);
         
         //delete card
-        
+        discard_pile.Add(player_hand[SlotNumber()]);
+        player_hand.RemoveAt(SlotNumber());
+        Destroy(//var.SlotNumber());
+        //Destroy(player_hand[SlotNumber()]);
         
         //shift cards in hand
         
         //At end set SlotNumber() = -1;
+
+        AiTurn();
     }
     
     
@@ -112,11 +122,40 @@ public class GameManager : MonoBehaviour
             deck.RemoveAt(randomCard);
         }
 
-        void AI_Turn()
+        aiHealth = 3;
+        Debug.Log("Heath" + aiHealth);
+    }
+
+    void AiTurn()
         {
+            if (aiHealth < 1)
+            {
+                //destroy current opponent
+                discard_pile.Add(ai_hand[0]);
+                ai_hand.RemoveAt(0);
+                //deal new opponent
+                DealOpponent();
+            }
+            else
+            {
+                Debug.Log("Enemy Attacks");
+                AiAttack();
+            }
             //check if health = 0
             //if health = 0, delete opponent
             //if health != 0, deal damage
+        }
+
+    void AiAttack()
+    {
+        int hitChance = Random.Range(0, 2);
+        if (hitChance < 1)
+        {
+            Debug.Log("Enemy Hit");
+        }
+        else
+        {
+            Debug.Log("Enemy Missed");
         }
     }
 }
