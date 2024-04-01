@@ -14,15 +14,17 @@ public class GameManager : MonoBehaviour
     public List<Card> ai_hand = new List<Card>();
     public List<Card> discard_pile = new List<Card>();
     //public List<Transform> card_positon = new List<Transform>();
-
+    
     public float offset;
 
     public Transform _canvas;
     
     //don't use this int for actual aihealth
     public float aiHealth;
-        
-    
+
+    //public bool destroyCard;
+
+    //public GameObject cardSelected;
     private void Awake()
     {
         if (gm != null && gm != this)
@@ -74,8 +76,7 @@ public class GameManager : MonoBehaviour
         
         //delete card
         discard_pile.Add(player_hand[SlotNumber()]);
-        player_hand.RemoveAt(SlotNumber());
-        Destroy(//var.SlotNumber());
+        player_hand[SlotNumber()].gameObject.SetActive(false);
         //Destroy(player_hand[SlotNumber()]);
         
         //shift cards in hand
@@ -84,8 +85,28 @@ public class GameManager : MonoBehaviour
 
         AiTurn();
     }
-    
-    
+
+   /* void DeleteCards(List<Card> one, List<Card> two)
+    {
+        if (one == discard_pile)
+        {
+            destroyCard = true;
+        }
+        else
+        {
+            destroyCard = false;
+        }
+
+        for (int i = 0; i < one.Count; i++)
+        {
+            two.Add(one[i]);
+            if (destroyCard)
+            {
+                cardSelected = one[i];
+                Destroy(cardSelected);
+            }
+        }
+    } */
     void Deal()
     {
         int dealSize = 4;
@@ -97,6 +118,7 @@ public class GameManager : MonoBehaviour
             Card randomDeckCard = Instantiate(player_deck[randomCard],
                 new Vector3(transform.position.x + offset, 200, 0), Quaternion.identity);
             player_hand.Add(randomDeckCard);
+            player_hand[randomCard].gameObject.SetActive(true);
             randomDeckCard.transform.SetParent(_canvas);
             player_deck.RemoveAt(randomCard);
             offset += 200;
@@ -125,7 +147,6 @@ public class GameManager : MonoBehaviour
         aiHealth = 3;
         Debug.Log("Heath" + aiHealth);
     }
-
     void AiTurn()
         {
             if (aiHealth < 1)
