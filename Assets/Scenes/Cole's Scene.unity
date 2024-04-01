@@ -268,7 +268,6 @@ MonoBehaviour:
   ai_hand: []
   discard_pile: []
   offset: 0
-  cardPlayed: 0
   _canvas: {fileID: 248373484}
 --- !u!4 &433091328
 Transform:
@@ -445,7 +444,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &8652176847483232569
+--- !u!1001 &5141146084808479516
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -453,47 +452,47 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6821172763250106297, guid: cc93cb60fb6644a7880a162ec59a5a93, type: 3}
+    - target: {fileID: 339575547270080272, guid: 246d9d10dc8e44628b4c430a4346957c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -196
       objectReference: {fileID: 0}
-    - target: {fileID: 6821172763250106297, guid: cc93cb60fb6644a7880a162ec59a5a93, type: 3}
+    - target: {fileID: 339575547270080272, guid: 246d9d10dc8e44628b4c430a4346957c, type: 3}
       propertyPath: m_LocalPosition.y
       value: 97
       objectReference: {fileID: 0}
-    - target: {fileID: 6821172763250106297, guid: cc93cb60fb6644a7880a162ec59a5a93, type: 3}
+    - target: {fileID: 339575547270080272, guid: 246d9d10dc8e44628b4c430a4346957c, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6821172763250106297, guid: cc93cb60fb6644a7880a162ec59a5a93, type: 3}
+    - target: {fileID: 339575547270080272, guid: 246d9d10dc8e44628b4c430a4346957c, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6821172763250106297, guid: cc93cb60fb6644a7880a162ec59a5a93, type: 3}
+    - target: {fileID: 339575547270080272, guid: 246d9d10dc8e44628b4c430a4346957c, type: 3}
       propertyPath: m_LocalRotation.x
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 6821172763250106297, guid: cc93cb60fb6644a7880a162ec59a5a93, type: 3}
+    - target: {fileID: 339575547270080272, guid: 246d9d10dc8e44628b4c430a4346957c, type: 3}
       propertyPath: m_LocalRotation.y
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 6821172763250106297, guid: cc93cb60fb6644a7880a162ec59a5a93, type: 3}
+    - target: {fileID: 339575547270080272, guid: 246d9d10dc8e44628b4c430a4346957c, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 6821172763250106297, guid: cc93cb60fb6644a7880a162ec59a5a93, type: 3}
+    - target: {fileID: 339575547270080272, guid: 246d9d10dc8e44628b4c430a4346957c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6821172763250106297, guid: cc93cb60fb6644a7880a162ec59a5a93, type: 3}
+    - target: {fileID: 339575547270080272, guid: 246d9d10dc8e44628b4c430a4346957c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6821172763250106297, guid: cc93cb60fb6644a7880a162ec59a5a93, type: 3}
+    - target: {fileID: 339575547270080272, guid: 246d9d10dc8e44628b4c430a4346957c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8578542411154630054, guid: cc93cb60fb6644a7880a162ec59a5a93, type: 3}
+    - target: {fileID: 7817737175738945125, guid: 246d9d10dc8e44628b4c430a4346957c, type: 3}
       propertyPath: m_Name
       value: Duke of Clubs
       objectReference: {fileID: 0}
@@ -501,7 +500,7 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: cc93cb60fb6644a7880a162ec59a5a93, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 246d9d10dc8e44628b4c430a4346957c, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -510,4 +509,4 @@ SceneRoots:
   - {fileID: 890101185}
   - {fileID: 433091328}
   - {fileID: 1316876196}
-  - {fileID: 8652176847483232569}
+  - {fileID: 5141146084808479516}
