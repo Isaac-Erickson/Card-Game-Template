@@ -251,15 +251,19 @@ MonoBehaviour:
   - {fileID: 1126644538999475434, guid: 17e906621820045c3ab6aae59feeace5, type: 3}
   - {fileID: 1126644538999475434, guid: 17e906621820045c3ab6aae59feeace5, type: 3}
   player_deck:
+  - {fileID: 322224979335164124, guid: c6d9052fb29384316908f2111f9e81a4, type: 3}
   - {fileID: 4608709814338197990, guid: 99ef4bccd68e84d9ba6e7c8051daf70b, type: 3}
-  - {fileID: 4608709814338197990, guid: 99ef4bccd68e84d9ba6e7c8051daf70b, type: 3}
-  - {fileID: 4608709814338197990, guid: 99ef4bccd68e84d9ba6e7c8051daf70b, type: 3}
-  - {fileID: 4608709814338197990, guid: 99ef4bccd68e84d9ba6e7c8051daf70b, type: 3}
+  - {fileID: 8449559863175183592, guid: 8f6b90126d50b4813b167f9e2bfb17ea, type: 3}
+  - {fileID: 7949900793174717279, guid: cc93cb60fb6644a7880a162ec59a5a93, type: 3}
+  - {fileID: 7949900793174717279, guid: cc93cb60fb6644a7880a162ec59a5a93, type: 3}
+  - {fileID: 7949900793174717279, guid: cc93cb60fb6644a7880a162ec59a5a93, type: 3}
   player_hand: []
   ai_hand: []
   discard_pile: []
   offset: 0
+  shiftOffset: 0
   _canvas: {fileID: 4002591297304670402}
+  aiHealth: 0
 --- !u!4 &622756966
 Transform:
   m_ObjectHideFlags: 0
