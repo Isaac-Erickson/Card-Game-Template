@@ -133,14 +133,14 @@ public class GameManager : MonoBehaviour
             player_hand[i].gameObject.transform.position = transform.position + new Vector3(100 - shiftOffset, 200, 0);
             shiftOffset += 200;
         }
-        //shiftOffset = 0;
+        shiftOffset = 0;
 
         //Wait for 2 seconds
         //StartCoroutine(Wait(2));
 
         player_hand.RemoveAt(SlotNumber());
         Draw();
-        //AiTurn();
+        AiTurn();
 
     }
 
