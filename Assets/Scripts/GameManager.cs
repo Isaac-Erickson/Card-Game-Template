@@ -9,14 +9,12 @@ public class GameManager : MonoBehaviour
     public static GameManager gm;
     public List<Card> deck = new List<Card>();
     public List<Card> player_deck = new List<Card>();
-    //public List<Card> ai_deck = new List<Card>();
     public List<Card> player_hand = new List<Card>();
     public List<Card> ai_hand = new List<Card>();
     public List<Card> discard_pile = new List<Card>();
-    //public List<Transform> card_positon = new List<Transform>();
     
     public float offset;
-
+    public float shiftOffset;
     public Transform _canvas;
     
     //don't use this int for actual aihealth
@@ -41,14 +39,53 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         offset = -300;
+        shiftOffset = 0;
         DealOpponent();
         Deal();
+    }
+ void Deal()
+    {
+        int dealSize = 4;
 
+        for (int i = 0; i < dealSize; i++)
+        {
+            int randomCard = Random.Range(0, player_deck.Count);
+
+            Card randomDeckCard = Instantiate(player_deck[randomCard],
+                new Vector3(transform.position.x + offset, 200, 0), Quaternion.identity);
+            player_hand.Add(randomDeckCard);
+            //player_hand[randomCard].gameObject.SetActive(true);
+            randomDeckCard.transform.SetParent(_canvas);
+            player_deck.RemoveAt(randomCard);
+            offset += 200;
+            //May need to be Remove or RemoveAt
+
+            //Use "Canvas" for parent
+            //for card_position try an offset instead, so a list of positions isn't needed
+        }
     }
 
+    void DealOpponent()
+    {
+        int dealSize = 1;
+
+        for (int i = 0; i < dealSize; i++)
+        {
+            int randomCard = Random.Range(0, deck.Count);
+
+            Card randomDeckCard = Instantiate(deck[randomCard], new Vector3(transform.position.x, 600, 0),
+                Quaternion.identity);
+            ai_hand.Add(randomDeckCard);
+            randomDeckCard.transform.SetParent(_canvas);
+            deck.RemoveAt(randomCard);
+        }
+
+        aiHealth = 3;
+        Debug.Log("Heath" + aiHealth);
+    }
    public int SlotNumber()
     {
-        for (int i = 0; i <= 9; i++)
+        for (int i = 0; i <= 3; i++)
         {
             if (Input.GetKeyDown(i.ToString()))
                 return i;
@@ -82,71 +119,63 @@ public class GameManager : MonoBehaviour
         //shift cards in hand
         
         //At end set SlotNumber() = -1;
-
-        AiTurn();
+        
+        HandShift();
     }
 
-   /* void DeleteCards(List<Card> one, List<Card> two)
+    void HandShift()
     {
-        if (one == discard_pile)
+        
+        for (int i = 3; i > SlotNumber(); i--)
         {
-            destroyCard = true;
+            Debug.Log("Ran");
+            
+            player_hand[i].gameObject.transform.position = transform.position + new Vector3(100 - shiftOffset, 200, 0);
+            shiftOffset += 200;
         }
-        else
-        {
-            destroyCard = false;
-        }
+        //shiftOffset = 0;
 
-        for (int i = 0; i < one.Count; i++)
-        {
-            two.Add(one[i]);
-            if (destroyCard)
-            {
-                cardSelected = one[i];
-                Destroy(cardSelected);
-            }
-        }
-    } */
-    void Deal()
+        //Wait for 2 seconds
+        //StartCoroutine(Wait(2));
+
+        player_hand.RemoveAt(SlotNumber());
+        Draw();
+        //AiTurn();
+
+    }
+
+    void Draw()
     {
-        int dealSize = 4;
+        int drawSize = 1;
 
-        for (int i = 0; i < dealSize; i++)
+        for (int i = 0; i < drawSize; i++)
         {
             int randomCard = Random.Range(0, player_deck.Count);
 
             Card randomDeckCard = Instantiate(player_deck[randomCard],
-                new Vector3(transform.position.x + offset, 200, 0), Quaternion.identity);
+                new Vector3(transform.position.x + offset - 200, 200, 0), Quaternion.identity);
             player_hand.Add(randomDeckCard);
-            player_hand[randomCard].gameObject.SetActive(true);
+            //player_hand[randomCard].gameObject.SetActive(true);
             randomDeckCard.transform.SetParent(_canvas);
             player_deck.RemoveAt(randomCard);
-            offset += 200;
             //May need to be Remove or RemoveAt
 
             //Use "Canvas" for parent
             //for card_position try an offset instead, so a list of positions isn't needed
         }
     }
-
-    void DealOpponent()
+    
+    //Wait function for HandShift, use when needed
+    /*IEnumerator Wait(float duration)
     {
-        int dealSize = 1;
-
-        for (int i = 0; i < dealSize; i++)
-        {
-            int randomCard = Random.Range(0, deck.Count);
-
-            Card randomDeckCard = Instantiate(deck[randomCard], new Vector3(transform.position.x, 600, 0),
-                Quaternion.identity);
-            ai_hand.Add(randomDeckCard);
-            randomDeckCard.transform.SetParent(_canvas);
-            deck.RemoveAt(randomCard);
-        }
-
-        aiHealth = 3;
-        Debug.Log("Heath" + aiHealth);
-    }
+        //This is a coroutine
+        Debug.Log("Start Wait() function. The time is: "+Time.time);
+        Debug.Log( "Float duration = "+duration);
+        yield return new WaitForSeconds(duration);   //Wait
+        Debug.Log("End Wait() function and the time is: "+Time.time);
+    }*/
+    
+   
     void AiTurn()
         {
             if (aiHealth < 1)
