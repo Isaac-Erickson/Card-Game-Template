@@ -418,6 +418,7 @@ MonoBehaviour:
   offset: 0
   shiftOffset: 0
   _canvas: {fileID: 1687590993}
+  DiscardLocation: {fileID: 0}
   aiHealth: 0
 --- !u!4 &1453591866
 Transform:
@@ -428,7 +429,7 @@ Transform:
   m_GameObject: {fileID: 1453591864}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -69, y: 157, z: 0}
+  m_LocalPosition: {x: 382, y: 220, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
