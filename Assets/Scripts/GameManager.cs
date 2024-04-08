@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour
         {
             int randomCard = Random.Range(0, deck.Count);
 
-            Card randomDeckCard = Instantiate(deck[randomCard], new Vector3(transform.position.x, 800, 0),
+            Card randomDeckCard = Instantiate(deck[randomCard], new Vector3(transform.position.x, 700, 0),
                 Quaternion.identity);
             ai_hand.Add(randomDeckCard);
             randomDeckCard.transform.SetParent(_canvas);
