@@ -17,7 +17,8 @@ public class GameManager : MonoBehaviour
     public float offset;
     public float shiftOffset;
     public Transform _canvas;
-    public Transform DiscardLocation;
+    //public Transform DiscardLocation;
+    public float PlayerHealth;
     
     //don't use this int for actual aihealth
     public float aiHealth;
@@ -42,6 +43,8 @@ public class GameManager : MonoBehaviour
     {
         offset = -300;
         shiftOffset = 0;
+        PlayerHealth = 5;
+        Debug.Log("Player Health " + PlayerHealth);
         DealOpponent();
         Deal();
     }
@@ -83,7 +86,8 @@ public class GameManager : MonoBehaviour
         }
 
         aiHealth = 3;
-        Debug.Log("Heath" + aiHealth);
+        Debug.Log("Enemy Heath " + aiHealth);
+        //no need for an l
     }
    public int SlotNumber()
     {
@@ -110,8 +114,8 @@ public class GameManager : MonoBehaviour
         //int cardDamage = player_hand[SlotNumber()].GetComponent<damage>();
         //find out card damage, player_hand, use Get.Component
         //deal card damage
-        aiHealth -= 1;
-        Debug.Log("Health" + aiHealth);
+        aiHealth -= player_hand[SlotNumber()].damage;
+        Debug.Log("Enemy Health " + aiHealth);
         
         //delete card
         discard_pile.Add(player_hand[SlotNumber()]);
@@ -138,8 +142,6 @@ public class GameManager : MonoBehaviour
         
         for (int i = 3; i > SlotNumber(); i--)
         {
-            Debug.Log("Ran");
-            
             player_hand[i].gameObject.transform.position = transform.position + new Vector3(100 - shiftOffset, 200, 0);
             shiftOffset += 200;
         }
@@ -212,10 +214,29 @@ public class GameManager : MonoBehaviour
         if (hitChance < 1)
         {
             Debug.Log("Enemy Hit");
+            EnemyHit();
         }
         else
         {
             Debug.Log("Enemy Missed");
         }
+    }
+
+    void EnemyHit()
+    {
+        //take damage
+        PlayerHealth -= ai_hand[0].damage;
+        Debug.Log("Player Health " + PlayerHealth);
+
+        //player death
+        if (PlayerHealth < 1)
+        {
+            Death();
+        }
+    }
+
+    void Death()
+    {
+        Debug.Log("Yur Ded");
     }
 }
