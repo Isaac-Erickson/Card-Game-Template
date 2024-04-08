@@ -184,7 +184,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 983.63245
+  orthographic size: 1367.9905
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -209,7 +209,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 347, y: 392, z: -10}
+  m_LocalPosition: {x: 347, y: 404, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -252,11 +252,11 @@ MonoBehaviour:
   - {fileID: 1126644538999475434, guid: 17e906621820045c3ab6aae59feeace5, type: 3}
   player_deck:
   - {fileID: 322224979335164124, guid: c6d9052fb29384316908f2111f9e81a4, type: 3}
+  - {fileID: 6537967756591948151, guid: b94806c9b513343c1b03d48ba0f1267f, type: 3}
   - {fileID: 322224979335164124, guid: c6d9052fb29384316908f2111f9e81a4, type: 3}
+  - {fileID: 5814947072850619475, guid: 11c53fb4e00db4cb8b396e66aa8492fb, type: 3}
   - {fileID: 322224979335164124, guid: c6d9052fb29384316908f2111f9e81a4, type: 3}
-  - {fileID: 322224979335164124, guid: c6d9052fb29384316908f2111f9e81a4, type: 3}
-  - {fileID: 322224979335164124, guid: c6d9052fb29384316908f2111f9e81a4, type: 3}
-  - {fileID: 322224979335164124, guid: c6d9052fb29384316908f2111f9e81a4, type: 3}
+  - {fileID: 7949900793174717279, guid: cc93cb60fb6644a7880a162ec59a5a93, type: 3}
   - {fileID: 322224979335164124, guid: c6d9052fb29384316908f2111f9e81a4, type: 3}
   - {fileID: 322224979335164124, guid: c6d9052fb29384316908f2111f9e81a4, type: 3}
   - {fileID: 322224979335164124, guid: c6d9052fb29384316908f2111f9e81a4, type: 3}
