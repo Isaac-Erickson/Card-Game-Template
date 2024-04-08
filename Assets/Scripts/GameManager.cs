@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.UIElements;
@@ -16,6 +17,7 @@ public class GameManager : MonoBehaviour
     public float offset;
     public float shiftOffset;
     public Transform _canvas;
+    public Transform DiscardLocation;
     
     //don't use this int for actual aihealth
     public float aiHealth;
@@ -73,7 +75,7 @@ public class GameManager : MonoBehaviour
         {
             int randomCard = Random.Range(0, deck.Count);
 
-            Card randomDeckCard = Instantiate(deck[randomCard], new Vector3(transform.position.x, 600, 0),
+            Card randomDeckCard = Instantiate(deck[randomCard], new Vector3(transform.position.x, 800, 0),
                 Quaternion.identity);
             ai_hand.Add(randomDeckCard);
             randomDeckCard.transform.SetParent(_canvas);
@@ -113,6 +115,9 @@ public class GameManager : MonoBehaviour
         
         //delete card
         discard_pile.Add(player_hand[SlotNumber()]);
+
+        //Discard();
+        
         player_hand[SlotNumber()].gameObject.SetActive(false);
         //Destroy(player_hand[SlotNumber()]);
         
@@ -123,6 +128,11 @@ public class GameManager : MonoBehaviour
         HandShift();
     }
 
+    /*void Discard()
+    {
+        Instantiate(discard_pile[0], DiscardLocation);
+    }*/
+    
     void HandShift()
     {
         
