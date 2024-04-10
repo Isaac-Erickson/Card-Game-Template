@@ -418,7 +418,7 @@ MonoBehaviour:
   offset: 0
   shiftOffset: 0
   _canvas: {fileID: 1687590993}
-  DiscardLocation: {fileID: 0}
+  PlayerHealth: 0
   aiHealth: 0
 --- !u!4 &1453591866
 Transform:
