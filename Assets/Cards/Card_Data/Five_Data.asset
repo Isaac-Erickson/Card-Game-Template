@@ -16,4 +16,4 @@ MonoBehaviour:
   description: 
   health: 0
   damage: 5
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: c5a981e85980548d089c33c3fb9ae860, type: 3}
